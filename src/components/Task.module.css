@@ -1,0 +1,120 @@
+.taskBox {
+  width: 100%;
+  color: var(--gray-100);
+  border: 1px solid var(--gray-500);
+  background: var(--gray-400);
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem;
+  border-radius: 8px;
+
+  font-weight: 400;
+  font-size: 0.875rem;
+
+  padding: 1rem;
+  gap: 0.75rem;
+}
+
+.taskBox div {
+  width: 39.5rem;
+  text-align: left;
+}
+
+.textCompleted {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.taskBox button {
+  background: transparent;
+  border: 0;
+  color: var(--gray-300);
+  cursor: pointer;
+  line-height: 0;
+  border-radius: 4px;
+  
+  transition: color 0.2s;
+}
+
+.taskBox button:hover {
+  background: var(--gray-400);
+  color: var(--danger);
+}
+
+.checkContainer {
+  display: block;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.checkContainer input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+}
+
+.unCheckMark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  border: 2px solid var(--blue);
+  border-radius: 999px;
+
+  transition: border-color 0.2s;
+}
+
+.unCheckMark:hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--blue-dark);
+  border-radius: 999px;
+}
+
+.checkMark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+
+  border: 2px solid var(--blue);
+  border-radius: 999px;
+}
+
+.checkMark::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 3px;
+  height: 6px;
+  border: solid var(--gray-100);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkContainer input[type="checkbox"]:checked ~ .checkMark {
+  background-color: var(--purple-dark);
+  border: solid var(--purple-dark);
+
+  transition: background-color 0.2s;
+}
+
+.checkContainer input[type="checkbox"]:checked::after ~ .checkMark {
+  display: block;
+}
+
+.checkContainer input[type="checkbox"]:checked:hover ~ .checkMark {
+  background-color: var(--purple);
+  border: solid var(--purple);
+}
